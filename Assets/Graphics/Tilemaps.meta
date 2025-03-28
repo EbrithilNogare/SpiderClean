@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Graphics/Tilemaps.meta
 guid: 2421f20cf0f055c4c8ae695f37ee92fd
+=======
+guid: 30277935feb0a3349ad1600e711989fb
+>>>>>>> 0f1616b71f10b0f50200df833197d85e2dc3bec2:Assets/Sprites/Tilemaps.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

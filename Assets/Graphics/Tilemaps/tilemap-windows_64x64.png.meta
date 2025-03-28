@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Graphics/Tilemaps/tilemap-windows_64x64.png.meta
 guid: 8df7d8d9ca15963469ba2045b577c5e7
+=======
+guid: e0581cbb383b6e74e96eb843cf64fb6d
+>>>>>>> 0f1616b71f10b0f50200df833197d85e2dc3bec2:Assets/Sprites/Tilemaps/tilemap-windows_64x64.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +47,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
+<<<<<<< HEAD:Assets/Graphics/Tilemaps/tilemap-windows_64x64.png.meta
   spriteMode: 1
+=======
+  spriteMode: 2
+>>>>>>> 0f1616b71f10b0f50200df833197d85e2dc3bec2:Assets/Sprites/Tilemaps/tilemap-windows_64x64.png.meta
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -93,9 +101,112 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<< HEAD:Assets/Graphics/Tilemaps/tilemap-windows_64x64.png.meta
   spriteSheet:
     serializedVersion: 2
     sprites: []
+=======
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tilemap-windows_64x64_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 253a0715d3c467d45a1024dc3cffbc68
+      internalID: 1815189109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap-windows_64x64_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69af687788072d2429556c559ac74a8e
+      internalID: -1763505483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap-windows_64x64_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e1ece9d6fdab654bb0d8746bc41d863
+      internalID: 656060639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap-windows_64x64_3
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04da9c7f25390634d86d8bd4fa754bc2
+      internalID: -908623852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+>>>>>>> 0f1616b71f10b0f50200df833197d85e2dc3bec2:Assets/Sprites/Tilemaps/tilemap-windows_64x64.png.meta
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +217,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+<<<<<<< HEAD:Assets/Graphics/Tilemaps/tilemap-windows_64x64.png.meta
     nameFileIdTable: {}
+=======
+    nameFileIdTable:
+      tilemap-windows_64x64_0: 1815189109
+      tilemap-windows_64x64_1: -1763505483
+      tilemap-windows_64x64_2: 656060639
+      tilemap-windows_64x64_3: -908623852
+>>>>>>> 0f1616b71f10b0f50200df833197d85e2dc3bec2:Assets/Sprites/Tilemaps/tilemap-windows_64x64.png.meta
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
