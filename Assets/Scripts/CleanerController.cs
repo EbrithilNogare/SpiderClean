@@ -20,6 +20,8 @@ public class CleanerController : MonoBehaviour
     private int usingCrane = 1;
     private Vector2 gravity = new Vector2(0, -9.81f);
     private Vector2 velocity;
+    private float slowdownConstant = 0.999f;
+    private float lineLength = 1;
 
     // x is right, -x is left, y is up, -y is down
 
@@ -47,7 +49,7 @@ public class CleanerController : MonoBehaviour
         transform.position = (Vector2)crane.position + offset.normalized * radius;
 
         velocity = Vector2.Dot(velocity, new Vector2(-direction.y, direction.x)) * new Vector2(-direction.y, direction.x);
-        velocity *= 0.999f;
+        velocity *= slowdownConstant;
     }
 
     public void Left(InputAction.CallbackContext context)
@@ -78,6 +80,7 @@ public class CleanerController : MonoBehaviour
         Transform crane = cranes[usingCrane];
         Vector2 offset = transform.position - crane.position;
         radius = offset.magnitude;
+        lineLength = 0;
     }
 
     public void Up(InputAction.CallbackContext context)
@@ -95,7 +98,8 @@ public class CleanerController : MonoBehaviour
     private void DrawSpiderWeb()
     {
         Transform crane = cranes[usingCrane];
-        lineRenderer.SetPosition(0, crane.position);
+        if (lineLength < 1) lineLength = Mathf.Min(1, lineLength + Time.deltaTime / Vector3.Distance(transform.position, crane.position) * 50f);
+        lineRenderer.SetPosition(0, Vector3.Lerp(transform.position, crane.position, lineLength));
         lineRenderer.SetPosition(1, transform.position);
     }
 
