@@ -357,7 +357,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3.5
-  speed: 5
+  speed: 0
+  climbingSpeed: 1
+  minRadius: 1
+  maxRadius: 10
   craneL: {fileID: 899668955}
   craneR: {fileID: 1536920317}
   lineRenderer: {fileID: 65364855}
