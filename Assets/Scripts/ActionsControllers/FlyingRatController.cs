@@ -10,6 +10,8 @@ public class FlyingRatController : MonoBehaviour
     GameManager gameManager;
 
     public SpriteRenderer ratSprite;
+    public AudioSource flySound;
+    public AudioSource fallSound;
 
     private float minYForSpawn = -4;
     private float maxYForSpawn = 2;
@@ -95,11 +97,13 @@ public class FlyingRatController : MonoBehaviour
 
     public void StartFall()
     {
+        flySound.Stop();
+        fallSound.Play();
         // Kill any existing tween before starting a new one
         if (fallTween != null) fallTween.Kill();
 
         // Move down (-5 in Y) over 2 seconds and rotate during the fall
-        fallTween = transform.DOMoveY(transform.position.y - 5, 2f)
+        fallTween = transform.DOMoveY(transform.position.y - 10f, 2f)
             .SetEase(Ease.InQuad)
             .OnComplete(() => Debug.Log("Fall Completed"));
 
