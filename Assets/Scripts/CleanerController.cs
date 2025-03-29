@@ -6,15 +6,15 @@ public class CleanerController : MonoBehaviour
     public float radius;
     public float speed;
     public float climbingSpeed;
-    public float minRadius = 1f;
-    public float maxRadius = 10f;
+    public float minRadius;
+    public float maxRadius;
 
-    public Transform craneL;
-    public Transform craneR;
+    public Transform[] cranes;
     public LineRenderer lineRenderer;
 
     private bool[] playerInput = new bool[2]; // 0 == up, 1 == down
-    private bool usingCraneL = false;
+    private int usingCrane = 1;
+    private float gravity = 9.81f;
     private float angle = Mathf.PI / 2f;
     private float swingDirection = 1f;
 
@@ -27,7 +27,7 @@ public class CleanerController : MonoBehaviour
 
     private void Swinging()
     {
-        Transform crane = usingCraneL ? craneL : craneR;
+        Transform crane = cranes[usingCrane];
         angle += speed * swingDirection * Time.deltaTime;
         angle = Mathf.Clamp(angle, 0, Mathf.PI);
 
@@ -41,29 +41,28 @@ public class CleanerController : MonoBehaviour
 
     public void Left(InputAction.CallbackContext context)
     {
-        if (context.performed && !usingCraneL)
+        if (context.performed)
         {
-            usingCraneL = true;
+            usingCrane = Mathf.Max(usingCrane - 1, 0);
             SwitchCrane();
         }
     }
 
     public void Right(InputAction.CallbackContext context)
     {
-        if (context.performed && usingCraneL)
+        if (context.performed)
         {
-            usingCraneL = false;
+            usingCrane = Mathf.Min(usingCrane + 1, cranes.Length - 1);
             SwitchCrane();
         }
     }
 
     private void SwitchCrane()
     {
-        Transform newCrane = usingCraneL ? craneL : craneR;
-        Vector2 offset = transform.position - newCrane.position;
+        Transform crane = cranes[usingCrane];
+        Vector2 offset = transform.position - crane.position;
         radius = offset.magnitude;
         angle = Mathf.Atan2(-offset.y, offset.x);
-        swingDirection = Mathf.Sign(Mathf.Sin(angle));
     }
 
     public void Up(InputAction.CallbackContext context)
@@ -80,7 +79,8 @@ public class CleanerController : MonoBehaviour
 
     private void DrawSpiderWeb()
     {
-        lineRenderer.SetPosition(0, (usingCraneL ? craneL : craneR).position);
+        Transform crane = cranes[usingCrane];
+        lineRenderer.SetPosition(0, crane.position);
         lineRenderer.SetPosition(1, transform.position);
     }
 
