@@ -357,7 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3.5
-  speed: 0
+  speed: 1
   climbingSpeed: 1
   minRadius: 1
   maxRadius: 10
