@@ -3,14 +3,16 @@ using UnityEngine.InputSystem;
 
 public class CleanerController : MonoBehaviour
 {
+    [Header("Per scene")]
+    public Transform[] cranes;
+    public LineRenderer lineRenderer;
+
+    [Header("Global")]
     public float radius;
     public float speed;
     public float climbingSpeed;
     public float minRadius;
     public float maxRadius;
-
-    public Transform[] cranes;
-    public LineRenderer lineRenderer;
 
     private bool[] playerInput = new bool[2]; // 0 == up, 1 == down
     private int usingCrane = 1;

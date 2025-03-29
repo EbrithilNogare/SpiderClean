@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class DirtController : MonoBehaviour
 {
-    public Texture2D texture;
+    [Header("Per scene")]
     public Transform cleaner;
+
+    [Header("Global")]
+    public Texture2D texture;
     private Vector2 size = new Vector2(3, 5);
 
     public int dirtCount;

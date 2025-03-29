@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class ScoreUpdater : MonoBehaviour
 {
-    public TMPro.TextMeshProUGUI scoreText;
+    [Header("Per scene")]
     public DirtController dirtController;
+
+    [Header("Global")]
+    public TMPro.TextMeshProUGUI scoreText;
     public string beforeText = "Remaining dirt: ";
     public string afterText = " %";
 
