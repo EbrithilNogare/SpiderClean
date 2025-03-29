@@ -7,19 +7,43 @@ public class DirtController : MonoBehaviour
 
     [Header("Global")]
     public Texture2D texture;
-    private Vector2 size = new Vector2(3, 5);
+    private float size;
+    private float smallSize = 5;
+    private float bigSize = 15;
 
     public int dirtCount;
     public int startingDirtCount;
 
     void Start()
     {
+        size = smallSize;
         dirtCount = startingDirtCount = texture.height * texture.width;
         for (int y = 0; y < texture.height; y++)
         {
             for (int x = 0; x < texture.width; x++)
             {
                 texture.SetPixel(x, y, Color.black);
+            }
+        }
+    }
+
+    public void IncreaseSize()
+    {
+        size = bigSize;
+    }
+
+    /// <summary></summary>
+    /// <param name="coor">Range 0 to 255</param>
+    /// <param name="radius">in scaled pixels</param>
+    public void PutDirt(Vector2 coor, float radius)
+    {
+
+        for (int y = (int)(coor.y - radius); y <= coor.y + radius; y++)
+        {
+            for (int x = (int)(coor.x - radius); x <= coor.x + radius; x++)
+            {
+                if (Vector2.Distance(coor, new Vector2(x, y)) < radius)
+                    texture.SetPixel(x, y, Color.black);
             }
         }
     }
@@ -35,13 +59,21 @@ public class DirtController : MonoBehaviour
         Clean(coor);
     }
 
+    private Vector2 lastCoor = new Vector2(-1000000, 0);
     public void Clean(Vector2 coor)
     {
-        GetComponent<Renderer>().material.mainTexture = texture;
-
-        for (int y = (int)(coor.y - size.y); y < coor.y + size.y; y++)
+        if (lastCoor.x == -1000000)
         {
-            for (int x = (int)(coor.x - size.x); x < coor.x + size.x; x++)
+            lastCoor = coor;
+            return;
+        }
+
+        GetComponent<Renderer>().material.mainTexture = texture;
+        int countOfXSize = (int)Mathf.Abs(lastCoor.x - coor.x) + 2;
+
+        for (int y = (int)(coor.y - size); y < coor.y + size; y++)
+        {
+            for (int x = (int)(coor.x - countOfXSize); x < coor.x + countOfXSize; x++)
             {
                 Color pixelColor = texture.GetPixel(x, y);
                 if (pixelColor == Color.black)
@@ -52,5 +84,6 @@ public class DirtController : MonoBehaviour
             }
         }
         texture.Apply();
+        lastCoor = coor;
     }
 }

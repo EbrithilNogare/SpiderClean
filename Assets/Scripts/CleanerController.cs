@@ -13,6 +13,8 @@ public class CleanerController : MonoBehaviour
     public float climbingSpeed;
     public float minRadius;
     public float maxRadius;
+    public SpriteRenderer spriteRenderer;
+    public Animator animator;
 
     private bool[] playerInput = new bool[2]; // 0 == up, 1 == down
     private int usingCrane = 1;
@@ -35,20 +37,17 @@ public class CleanerController : MonoBehaviour
         Vector2 offset = (Vector2)transform.position - (Vector2)crane.position;
         Vector2 direction = offset.normalized;
 
-        // Compute acceleration from gravity
         Vector2 tangentialVelocity = new Vector2(-direction.y, direction.x) * velocity.magnitude;
         Vector2 acceleration = gravity - (Vector2.Dot(gravity, direction) * direction);
 
-        // Integrate velocity and apply constraints
         velocity += acceleration * Time.deltaTime;
         Vector2 newPosition = (Vector2)crane.position + direction * radius + velocity * Time.deltaTime;
 
-        // Maintain rope constraint
         offset = newPosition - (Vector2)crane.position;
         transform.position = (Vector2)crane.position + offset.normalized * radius;
 
-        // Adjust velocity to be tangent to the swing
         velocity = Vector2.Dot(velocity, new Vector2(-direction.y, direction.x)) * new Vector2(-direction.y, direction.x);
+        velocity *= 0.9995f;
     }
 
     public void Left(InputAction.CallbackContext context)
@@ -67,6 +66,11 @@ public class CleanerController : MonoBehaviour
             usingCrane = Mathf.Min(usingCrane + 1, cranes.Length - 1);
             SwitchCrane();
         }
+    }
+
+    public void StartSpiderSense()
+    {
+        animator.SetTrigger("spiderSenseStart");
     }
 
     private void SwitchCrane()
@@ -108,5 +112,7 @@ public class CleanerController : MonoBehaviour
         Vector2 offset = transform.position - cranes[usingCrane].position;
         float angle = Mathf.Atan2(-offset.y, offset.x);
         transform.rotation = Quaternion.Euler(0, 0, -Mathf.Rad2Deg * (angle - 90));
+
+        spriteRenderer.flipX = velocity.x < 0;
     }
 }
