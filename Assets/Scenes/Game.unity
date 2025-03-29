@@ -184,6 +184,11 @@ LineRenderer:
   m_CorrespondingSourceObject: {fileID: 8659547723938450268, guid: bdd3b241097f820489611ba7ecff00ea, type: 3}
   m_PrefabInstance: {fileID: 152788193}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &337782656 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8255454930600904874, guid: 443d73e1370a5f548b375414cc86d047, type: 3}
+  m_PrefabInstance: {fileID: 764412294}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &492270691 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7973233614719733273, guid: b32846b6a3319db4a8eb35a0c85890ef, type: 3}
@@ -329,13 +334,43 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8255454930600904874, guid: 443d73e1370a5f548b375414cc86d047, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1286714454}
   m_SourcePrefab: {fileID: 100100000, guid: 443d73e1370a5f548b375414cc86d047, type: 3}
 --- !u!4 &1286714449 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3272327995492341077, guid: 443d73e1370a5f548b375414cc86d047, type: 3}
   m_PrefabInstance: {fileID: 764412294}
   m_PrefabAsset: {fileID: 0}
+--- !u!50 &1286714454
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337782656}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &1376481635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -779,6 +814,10 @@ PrefabInstance:
     - target: {fileID: 7009390802070883438, guid: 1ec293e4bedde2f4590b892effa25e9b, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888615510239979407, guid: 1ec293e4bedde2f4590b892effa25e9b, type: 3}
+      propertyPath: flyingRat_spawnInterval
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9196430369104138819, guid: 1ec293e4bedde2f4590b892effa25e9b, type: 3}
       propertyPath: m_LocalPosition.x

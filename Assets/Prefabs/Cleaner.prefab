@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 8222311801281348033}
   m_Layer: 0
   m_Name: Cleaner
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

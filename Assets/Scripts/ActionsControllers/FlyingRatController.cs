@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FlyingRatController : MonoBehaviour
@@ -18,10 +20,16 @@ public class FlyingRatController : MonoBehaviour
     private bool canBeDestroyed = false;
     
     private float flyingSpeed = 1.5f;
+    
+    private Tween fallTween;
+    private bool falling = false;
+    private CleanerController player;
 
     public void Init()
     {
         gameManager = FindObjectOfType<GameManager>();
+        player = FindObjectOfType<CleanerController>();
+        
         Debug.Log("FlyingRat Spawn.");
         
         //GENERATE SIDE
@@ -43,6 +51,12 @@ public class FlyingRatController : MonoBehaviour
 
     private void Update()
     {
+        if (Vector3.Distance(transform.position, player.transform.position) < 1f && !falling)
+        {
+            falling = true;
+            TriggerEnter();
+        }
+        
         if (flyingFromLeft) 
         {
             float newXPosition = transform.position.x + flyingSpeed * Time.deltaTime;
@@ -64,13 +78,40 @@ public class FlyingRatController : MonoBehaviour
             if(canBeDestroyed)
                 Destroy(gameObject);
         }
+
+        if (transform.position.y < -8f )
+        {
+            KillFall();
+        }
         
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void TriggerEnter()
     {
         Debug.Log("FlyingRat OnCollisionEnter2D");
         gameManager.OnFlyingRatHit.Invoke();
-        //Destroy(gameObject);
+        StartFall();
+    }
+
+    public void StartFall()
+    {
+        // Kill any existing tween before starting a new one
+        if (fallTween != null) fallTween.Kill();
+
+        // Move down (-5 in Y) over 2 seconds and rotate during the fall
+        fallTween = transform.DOMoveY(transform.position.y - 5, 2f)
+            .SetEase(Ease.InQuad)
+            .OnComplete(() => Debug.Log("Fall Completed"));
+
+        // Rotate while falling
+        transform.DORotate(new Vector3(0, 0, 360), 2f, RotateMode.FastBeyond360)
+            .SetEase(Ease.Linear);
+    }
+
+    public void KillFall()
+    {
+        if (fallTween != null) fallTween.Kill();
+        Debug.Log("Tween Killed");
+        Destroy(gameObject);
     }
 }
