@@ -42,8 +42,11 @@ public class DirtController : MonoBehaviour
         {
             for (int x = (int)(coor.x - radius); x <= coor.x + radius; x++)
             {
-                if (Vector2.Distance(coor, new Vector2(x, y)) < radius)
+                if (Vector2.Distance(coor, new Vector2(x, y)) < radius && texture.GetPixel(x, y) != Color.black)
+                {
+                    dirtCount++;
                     texture.SetPixel(x, y, Color.black);
+                }
             }
         }
     }
