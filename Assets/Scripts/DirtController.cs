@@ -22,9 +22,10 @@ public class DirtController : MonoBehaviour
         {
             for (int x = 0; x < texture.width; x++)
             {
-                texture.SetPixel(x, y, Color.black);
+                texture.SetPixel(x, y, Color.white);
             }
         }
+        texture.Apply();
     }
 
     public void IncreaseSize()
@@ -32,23 +33,27 @@ public class DirtController : MonoBehaviour
         size = bigSize;
     }
 
-    /// <summary></summary>
-    /// <param name="coor">Range 0 to 255</param>
-    /// <param name="radius">in scaled pixels</param>
-    public void PutDirt(Vector2 coor, float radius)
+    public void PutDirt(Vector2 dirtPosition, float radius)
     {
+        Vector2 buildingPosition = new Vector2(transform.position.x, transform.position.y);
+        Vector2 coor = new Vector2(
+            (dirtPosition.x - buildingPosition.x) * texture.width / transform.localScale.x + texture.width / 2,
+            (dirtPosition.y - buildingPosition.y) * texture.height / transform.localScale.y + texture.height / 2
+        );
 
         for (int y = (int)(coor.y - radius); y <= coor.y + radius; y++)
         {
             for (int x = (int)(coor.x - radius); x <= coor.x + radius; x++)
             {
-                if (Vector2.Distance(coor, new Vector2(x, y)) < radius && texture.GetPixel(x, y) != Color.black)
+                if (x >= 0 && x < texture.width && y >= 0 && y < texture.height &&
+                    Vector2.Distance(coor, new Vector2(x, y)) < radius && texture.GetPixel(x, y) != Color.black)
                 {
                     dirtCount++;
                     texture.SetPixel(x, y, Color.black);
                 }
             }
         }
+        texture.Apply();
     }
 
     void Update()
