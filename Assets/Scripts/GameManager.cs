@@ -9,12 +9,38 @@ public class GameManager : MonoBehaviour
     public Action OnCleaningDone;
     public Action OnTimesUp;
 
-    public Action OnFlyingRatSpawn;
     public Action OnFlowerPotFallingDown;
     public Action OnGreenGoblinAppears;
 
     public float cleaningProgress = 1.0f;
     public GameObject flyingRat;
+    
+    public UnityEvent OnFlyingRatHit;
+    
+    [Header("DEBUG")]
+    public bool spawnFlyingRat = false;
+
+    private void Start()
+    {
+    }
+
+    private void Update()
+    {
+        if (spawnFlyingRat)
+        {
+            spawnFlyingRat = false;
+            SpawnFlyingRat();
+        }
+    }
+
+    public void SpawnFlyingRat()
+    {
+        var newflyingRat = Instantiate(flyingRat);
+        newflyingRat.GetComponent<FlyingRatController>().Init();
+        spawnFlyingRat = false;
+    }
+    
+    
 
 
 }
