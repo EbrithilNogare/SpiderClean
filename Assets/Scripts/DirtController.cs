@@ -6,8 +6,12 @@ public class DirtController : MonoBehaviour
     public Transform cleaner;
     private Vector2 size = new Vector2(3, 5);
 
+    public int dirtCount;
+    public int startingDirtCount;
+
     void Start()
     {
+        dirtCount = startingDirtCount = texture.height * texture.width;
         for (int y = 0; y < texture.height; y++)
         {
             for (int x = 0; x < texture.width; x++)
@@ -36,7 +40,12 @@ public class DirtController : MonoBehaviour
         {
             for (int x = (int)(coor.x - size.x); x < coor.x + size.x; x++)
             {
-                texture.SetPixel(x, y, Color.red);
+                Color pixelColor = texture.GetPixel(x, y);
+                if (pixelColor == Color.black)
+                {
+                    dirtCount--;
+                    texture.SetPixel(x, y, Color.white);
+                }
             }
         }
         texture.Apply();
