@@ -20,11 +20,11 @@ public class DirtController : MonoBehaviour
     void Update()
     {
         Vector2 cleanerPosition = new Vector2(cleaner.position.x, cleaner.position.y);
+        Vector2 buildingPosition = new Vector2(transform.position.x, transform.position.y);
         Vector2 coor = new Vector2(
-            (cleanerPosition.x) * texture.width / transform.localScale.x + texture.width / 2,
-            (cleanerPosition.y) * texture.height / transform.localScale.y + texture.height / 2
+            (cleanerPosition.x - buildingPosition.x) * texture.width / transform.localScale.x + texture.width / 2,
+            (cleanerPosition.y - buildingPosition.y) * texture.height / transform.localScale.y + texture.height / 2
         );
-        Debug.Log(coor);
         Clean(coor);
     }
 
