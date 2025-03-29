@@ -216,7 +216,7 @@ MonoBehaviour:
   minRadius: 1
   maxRadius: 9.4
   spriteRenderer: {fileID: 1670484994642847895}
-  animator: {fileID: 0}
+  animator: {fileID: 5237279459674110826}
 --- !u!114 &8222311801281348033
 MonoBehaviour:
   m_ObjectHideFlags: 0

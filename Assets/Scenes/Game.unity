@@ -560,6 +560,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1286714454}
   m_SourcePrefab: {fileID: 100100000, guid: 443d73e1370a5f548b375414cc86d047, type: 3}
+--- !u!114 &764412295 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7232950925820588783, guid: 443d73e1370a5f548b375414cc86d047, type: 3}
+  m_PrefabInstance: {fileID: 764412294}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337782656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b05f0eb53245f4544b85474ed693b3a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1246765854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1114,6 +1125,62 @@ PrefabInstance:
     - target: {fileID: 8888615510239979407, guid: 1ec293e4bedde2f4590b892effa25e9b, type: 3}
       propertyPath: flyingRat_spawnInterval
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888615510239979407, guid: 1ec293e4bedde2f4590b892effa25e9b, type: 3}
+      propertyPath: OnFlyingRatHit.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888615510239979407, guid: 1ec293e4bedde2f4590b892effa25e9b, type: 3}
+      propertyPath: OnFlyingRatSpawn.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888615510239979407, guid: 1ec293e4bedde2f4590b892effa25e9b, type: 3}
+      propertyPath: OnFlyingRatHit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888615510239979407, guid: 1ec293e4bedde2f4590b892effa25e9b, type: 3}
+      propertyPath: OnFlyingRatHit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 764412295}
+    - target: {fileID: 8888615510239979407, guid: 1ec293e4bedde2f4590b892effa25e9b, type: 3}
+      propertyPath: OnFlyingRatSpawn.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888615510239979407, guid: 1ec293e4bedde2f4590b892effa25e9b, type: 3}
+      propertyPath: OnFlyingRatSpawn.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 764412295}
+    - target: {fileID: 8888615510239979407, guid: 1ec293e4bedde2f4590b892effa25e9b, type: 3}
+      propertyPath: OnFlyingRatHit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888615510239979407, guid: 1ec293e4bedde2f4590b892effa25e9b, type: 3}
+      propertyPath: OnFlyingRatHit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartSpiderSense
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888615510239979407, guid: 1ec293e4bedde2f4590b892effa25e9b, type: 3}
+      propertyPath: OnFlyingRatSpawn.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888615510239979407, guid: 1ec293e4bedde2f4590b892effa25e9b, type: 3}
+      propertyPath: OnFlyingRatSpawn.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartSpiderSense
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888615510239979407, guid: 1ec293e4bedde2f4590b892effa25e9b, type: 3}
+      propertyPath: OnFlyingRatHit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CleanerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888615510239979407, guid: 1ec293e4bedde2f4590b892effa25e9b, type: 3}
+      propertyPath: OnFlyingRatSpawn.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CleanerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888615510239979407, guid: 1ec293e4bedde2f4590b892effa25e9b, type: 3}
+      propertyPath: OnFlyingRatHit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888615510239979407, guid: 1ec293e4bedde2f4590b892effa25e9b, type: 3}
+      propertyPath: OnFlyingRatSpawn.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 9196430369104138819, guid: 1ec293e4bedde2f4590b892effa25e9b, type: 3}
       propertyPath: m_LocalPosition.x

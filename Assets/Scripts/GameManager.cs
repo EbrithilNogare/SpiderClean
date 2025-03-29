@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     [FormerlySerializedAs("spawnInterval")] public float flyingRat_spawnInterval = 10f; // Time between spawns
     [FormerlySerializedAs("spawnChance")] public float FlyingRatspawnChance = 0.6f; 
     
+    public UnityEvent OnFlyingRatSpawn;
     public UnityEvent OnFlyingRatHit;
     
     [Header("DEBUG")]
@@ -58,6 +59,7 @@ public class GameManager : MonoBehaviour
 
     public void SpawnFlyingRat()
     {
+        OnFlyingRatSpawn?.Invoke();
         var newflyingRat = Instantiate(flyingRat);
         newflyingRat.GetComponent<FlyingRatController>().Init();
         spawnFlyingRat = false;
