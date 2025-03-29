@@ -47,7 +47,7 @@ public class CleanerController : MonoBehaviour
         transform.position = (Vector2)crane.position + offset.normalized * radius;
 
         velocity = Vector2.Dot(velocity, new Vector2(-direction.y, direction.x)) * new Vector2(-direction.y, direction.x);
-        velocity *= 0.9995f;
+        velocity *= 0.999f;
     }
 
     public void Left(InputAction.CallbackContext context)
