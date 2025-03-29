@@ -67,7 +67,18 @@
                 },
                 {
                     "name": "",
-                    "id": "535efaaf-684f-47ca-b500-6d0dad705470",
+                    "id": "52e53a26-8569-496f-aac4-c40193cfc7a2",
+                    "path": "<DualShockGamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a8181a61-f43c-4b9e-b53c-a34863be7345",
                     "path": "<HID::USB gamepad           >/button5",
                     "interactions": "",
                     "processors": "",
@@ -100,7 +111,18 @@
                 },
                 {
                     "name": "",
-                    "id": "14b6a4e4-5962-4acc-b104-b8f2148032dd",
+                    "id": "c1e5e0c3-d10e-492c-a175-97e104fcb737",
+                    "path": "<DualShockGamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "db13c019-2307-415d-9d55-2a0b6ae2363d",
                     "path": "<HID::USB gamepad           >/button6",
                     "interactions": "",
                     "processors": "",
