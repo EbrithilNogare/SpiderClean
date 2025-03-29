@@ -428,7 +428,7 @@ MonoBehaviour:
   speed: 1
   climbingSpeed: 2
   minRadius: 1
-  maxRadius: 9
+  maxRadius: 9.4
   cranes:
   - {fileID: 899668955}
   - {fileID: 407597925}

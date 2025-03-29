@@ -14,9 +14,10 @@ public class CleanerController : MonoBehaviour
 
     private bool[] playerInput = new bool[2]; // 0 == up, 1 == down
     private int usingCrane = 1;
-    private float gravity = 9.81f;
-    private float angle = Mathf.PI / 2f;
-    private float swingDirection = 1f;
+    private Vector2 gravity = new Vector2(0, -9.81f);
+    private Vector2 velocity;
+
+    // x is right, -x is left, y is up, -y is down
 
     void Update()
     {
@@ -29,15 +30,23 @@ public class CleanerController : MonoBehaviour
     private void Swinging()
     {
         Transform crane = cranes[usingCrane];
-        angle += speed * swingDirection * Time.deltaTime;
-        angle = Mathf.Clamp(angle, 0, Mathf.PI);
+        Vector2 offset = (Vector2)transform.position - (Vector2)crane.position;
+        Vector2 direction = offset.normalized;
 
-        float x = crane.position.x + Mathf.Cos(angle) * radius;
-        float y = crane.position.y - Mathf.Sin(angle) * radius;
-        transform.position = new Vector3(x, y, transform.position.z);
+        // Compute acceleration from gravity
+        Vector2 tangentialVelocity = new Vector2(-direction.y, direction.x) * velocity.magnitude;
+        Vector2 acceleration = gravity - (Vector2.Dot(gravity, direction) * direction);
 
-        if (angle >= Mathf.PI || angle <= 0)
-            swingDirection *= -1f;
+        // Integrate velocity and apply constraints
+        velocity += acceleration * Time.deltaTime;
+        Vector2 newPosition = (Vector2)crane.position + direction * radius + velocity * Time.deltaTime;
+
+        // Maintain rope constraint
+        offset = newPosition - (Vector2)crane.position;
+        transform.position = (Vector2)crane.position + offset.normalized * radius;
+
+        // Adjust velocity to be tangent to the swing
+        velocity = Vector2.Dot(velocity, new Vector2(-direction.y, direction.x)) * new Vector2(-direction.y, direction.x);
     }
 
     public void Left(InputAction.CallbackContext context)
@@ -63,7 +72,6 @@ public class CleanerController : MonoBehaviour
         Transform crane = cranes[usingCrane];
         Vector2 offset = transform.position - crane.position;
         radius = offset.magnitude;
-        angle = Mathf.Atan2(-offset.y, offset.x);
     }
 
     public void Up(InputAction.CallbackContext context)
@@ -87,12 +95,16 @@ public class CleanerController : MonoBehaviour
 
     private void Climbing()
     {
-        if (playerInput[0]) radius = Mathf.Max(minRadius, radius - climbingSpeed * Time.deltaTime);
-        if (playerInput[1]) radius = Mathf.Min(maxRadius, radius + climbingSpeed * Time.deltaTime);
+        if (playerInput[0] || radius > maxRadius)
+            radius = Mathf.Max(minRadius, radius - climbingSpeed * Time.deltaTime);
+        if (playerInput[1])
+            radius = Mathf.Min(maxRadius, radius + climbingSpeed * Time.deltaTime);
     }
 
     private void DrawCleaner()
     {
+        Vector2 offset = transform.position - cranes[usingCrane].position;
+        float angle = Mathf.Atan2(-offset.y, offset.x);
         transform.rotation = Quaternion.Euler(0, 0, -Mathf.Rad2Deg * (angle - 90));
     }
 }
