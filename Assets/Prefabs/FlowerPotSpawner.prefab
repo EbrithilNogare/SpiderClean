@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cleaner: {fileID: 0}
+  flyingFlowerController: {fileID: 8320703570480111944}
   flowerPot: {fileID: 3116014107632078606}
   startPoint: {fileID: 9192367855726357957}
   endPoint: {fileID: 1668927272619111870}
@@ -61,6 +62,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1713178771478579121}
   - component: {fileID: 6281700053318995326}
+  - component: {fileID: 8320703570480111944}
   m_Layer: 0
   m_Name: Flower pot
   m_TagString: Untagged
@@ -135,6 +137,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8320703570480111944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3116014107632078606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdd0865a8307f9f458bea38a13fe28c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5819418569117302285
 GameObject:
   m_ObjectHideFlags: 0

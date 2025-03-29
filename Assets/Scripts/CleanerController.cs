@@ -70,6 +70,12 @@ public class CleanerController : MonoBehaviour
         }
     }
 
+    public void GotHit()
+    {
+        lineLength = -.2f;
+        velocity = Vector2.zero;
+    }
+
     public void StartSpiderSense()
     {
         animator.SetTrigger("spiderSenseStart");

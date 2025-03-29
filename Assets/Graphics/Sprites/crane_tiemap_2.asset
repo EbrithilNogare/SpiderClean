@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: crane_tiemap_2
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 2109254696, guid: f128a0a14a08cfa42b6e9dade911d386, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.9606118, b: 0, a: 1}
   m_Transform:
     e00: 1
     e01: 0

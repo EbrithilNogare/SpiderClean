@@ -8,6 +8,7 @@ public class FlowerPotManager : MonoBehaviour
     public Transform cleaner;
 
     [Header("Global")]
+    public FlyingFlowerController flyingFlowerController;
     public GameObject flowerPot;
     public Transform startPoint;
     public Transform endPoint;
@@ -17,6 +18,8 @@ public class FlowerPotManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(FlowerPotCoroutine());
+        flyingFlowerController.player = cleaner.GetComponent<CleanerController>();
+        flyingFlowerController.flowerPotManager = this;
     }
 
     IEnumerator FlowerPotCoroutine()
