@@ -23,6 +23,7 @@ public class CleanerController : MonoBehaviour
         Climbing();
         Swinging();
         DrawSpiderWeb();
+        DrawCleaner();
     }
 
     private void Swinging()
@@ -88,5 +89,10 @@ public class CleanerController : MonoBehaviour
     {
         if (playerInput[0]) radius = Mathf.Max(minRadius, radius - climbingSpeed * Time.deltaTime);
         if (playerInput[1]) radius = Mathf.Min(maxRadius, radius + climbingSpeed * Time.deltaTime);
+    }
+
+    private void DrawCleaner()
+    {
+        transform.rotation = Quaternion.Euler(0, 0, -Mathf.Rad2Deg * (angle - 90));
     }
 }
