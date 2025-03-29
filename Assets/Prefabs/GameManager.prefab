@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cleaningProgress: 1
-  flyingRat: {fileID: 0}
+  flyingRat: {fileID: 8858093813934108178, guid: cd815b1ccb732be4f8b77462de3b6b84, type: 3}
